@@ -1,5 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope, Sora, Yellowtail } from "next/font/google";
+import { FloatingRail } from "@/components/layout/FloatingRail";
+import { Footer } from "@/components/layout/Footer";
+import { Header } from "@/components/layout/Header";
 import { Providers } from "@/components/providers/Providers";
 import { siteConfig } from "@/data/site";
 import { profile } from "@/data/profile";
@@ -79,7 +82,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         >
           Skip to content
         </a>
-        <Providers>{children}</Providers>
+        <Providers>
+          <Header />
+          {children}
+          <Footer />
+          <FloatingRail />
+        </Providers>
       </body>
     </html>
   );

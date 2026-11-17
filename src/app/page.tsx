@@ -1,5 +1,5 @@
-import { Header } from "@/components/layout/Header";
 import { AboutSection } from "@/components/sections/AboutSection";
+import { ContactSection } from "@/components/sections/ContactSection";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { PortfolioSection } from "@/components/sections/PortfolioSection";
 import { ProcessSection } from "@/components/sections/ProcessSection";
@@ -10,8 +10,7 @@ import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 export default function HomePage() {
   return (
     <>
-      <Header />
-      <main id="main">
+      <main id="main" className="overflow-x-clip">
         <HeroSection />
         <AboutSection />
         <ServicesSection />
@@ -19,6 +18,7 @@ export default function HomePage() {
         <ProcessSection />
         <SkillsSection />
         <TestimonialsSection />
+        <ContactSection />
       </main>
     </>
   );

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { Header } from "@/components/layout/Header";
 import { buttonClasses } from "@/components/ui/Button";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { ProjectBadge } from "@/components/ui/ProjectBadge";
@@ -40,8 +39,7 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
 
   return (
     <>
-      <Header />
-      <main id="main" className="relative pt-28 pb-24 sm:pt-36">
+      <main id="main" className="relative overflow-x-clip pt-28 pb-24 sm:pt-36">
         <div className="pointer-events-none absolute -top-40 left-1/2 -z-10 size-[40rem] -translate-x-1/2 rounded-full bg-primary/20 blur-[140px]" aria-hidden="true" />
         <article className="container-page max-w-4xl">
           <FadeIn>
