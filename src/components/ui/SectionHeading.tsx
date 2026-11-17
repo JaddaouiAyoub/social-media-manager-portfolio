@@ -29,7 +29,7 @@ export function SectionHeading({ id, eyebrow, title, description, align = "left"
     <Reveal
       className={cn(
         "flex max-w-2xl flex-col gap-5",
-        align === "center" && "mx-auto items-center text-center",
+        align === "center" ? "mx-auto items-center text-center" : "items-start",
         className,
       )}
     >
