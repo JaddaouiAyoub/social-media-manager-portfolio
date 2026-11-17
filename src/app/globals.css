@@ -1,26 +1,269 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Class-based dark mode: the `dark` class is set on <html> by the theme script. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* -------------------------------------------------------------------------- */
+/*  Design tokens                                                             */
+/*  Every colour used by components comes from these variables.               */
+/* -------------------------------------------------------------------------- */
+
+:root,
+.light {
+  --bg: #f7f5fc;
+  --bg-soft: #efeaf9;
+  --surface: #ffffff;
+  --surface-2: #f3eefc;
+  --surface-glass: rgb(255 255 255 / 0.72);
+  --fg: #171020;
+  --muted: #625a70;
+  --subtle: #8a8298;
+  --border: rgb(23 16 32 / 0.09);
+  --border-strong: rgb(23 16 32 / 0.16);
+
+  --primary: #7c1ff0;
+  --primary-strong: #6a14d6;
+  --primary-soft: rgb(124 31 240 / 0.1);
+  --magenta: #b31cf0;
+  --blue: #2f6cf0;
+  --cyan: #0ea5c6;
+  --success: #12a150;
+  --danger: #d92d4b;
+  --on-primary: #ffffff;
+
+  --glow: rgb(139 44 255 / 0.18);
+  --glow-strong: rgb(139 44 255 / 0.3);
+  --shadow-color: 270 40% 30%;
+  --grid-line: rgb(23 16 32 / 0.045);
+  --noise-opacity: 0.025;
+
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #07050d;
+  --bg-soft: #0b0814;
+  --surface: #100b1b;
+  --surface-2: #171024;
+  --surface-glass: rgb(20 13 34 / 0.62);
+  --fg: #f8f7fc;
+  --muted: #b9b2c8;
+  --subtle: #8c84a0;
+  --border: rgb(255 255 255 / 0.08);
+  --border-strong: rgb(255 255 255 / 0.16);
+
+  --primary: #8b2cff;
+  --primary-strong: #a24dff;
+  --primary-soft: rgb(139 44 255 / 0.16);
+  --magenta: #c026ff;
+  --blue: #3478ff;
+  --cyan: #22c3e6;
+  --success: #34d27b;
+  --danger: #ff5c7a;
+  --on-primary: #ffffff;
+
+  --glow: rgb(139 44 255 / 0.35);
+  --glow-strong: rgb(160 60 255 / 0.55);
+  --shadow-color: 270 80% 4%;
+  --grid-line: rgb(255 255 255 / 0.035);
+  --noise-opacity: 0.04;
+
+  color-scheme: dark;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-bg: var(--bg);
+  --color-bg-soft: var(--bg-soft);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-glass: var(--surface-glass);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-line: var(--border);
+  --color-line-strong: var(--border-strong);
+  --color-primary: var(--primary);
+  --color-primary-strong: var(--primary-strong);
+  --color-primary-soft: var(--primary-soft);
+  --color-magenta: var(--magenta);
+  --color-blue: var(--blue);
+  --color-cyan: var(--cyan);
+  --color-success: var(--success);
+  --color-danger: var(--danger);
+  --color-on-primary: var(--on-primary);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Platform brand colours (used only for decorative platform tiles). */
+  --color-brand-instagram-from: #feda75;
+  --color-brand-instagram-via: #d62976;
+  --color-brand-instagram-to: #4f5bd5;
+  --color-brand-tiktok: #111111;
+  --color-brand-youtube: #ff0033;
+  --color-brand-linkedin: #0a66c2;
+
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
+  --font-script: var(--font-signature), cursive;
+
+  --radius-card: 1.75rem;
+
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-float-slow: float 10s ease-in-out infinite;
+  --animate-spin-slow: spin 40s linear infinite;
+  --animate-pulse-soft: pulse-soft 3s ease-in-out infinite;
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(0, -12px, 0);
+    }
+  }
+
+  @keyframes pulse-soft {
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.55;
+      transform: scale(0.85);
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* -------------------------------------------------------------------------- */
+/*  Base                                                                      */
+/* -------------------------------------------------------------------------- */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    overflow-x: clip;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--primary);
+    color: var(--on-primary);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+    border-radius: 0.5rem;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Reusable utilities                                                        */
+/* -------------------------------------------------------------------------- */
+
+@utility container-page {
+  width: 100%;
+  max-width: 82rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+  @media (width >= 40rem) {
+    padding-inline: 1.5rem;
+  }
+  @media (width >= 64rem) {
+    padding-inline: 2.5rem;
+  }
+}
+
+@utility glass {
+  background-color: var(--surface-glass);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+}
+
+@utility card-shadow {
+  box-shadow:
+    0 1px 1px hsl(var(--shadow-color) / 0.06),
+    0 8px 24px -6px hsl(var(--shadow-color) / 0.18),
+    0 30px 60px -20px hsl(var(--shadow-color) / 0.25);
+}
+
+@utility text-gradient {
+  background-image: linear-gradient(100deg, var(--primary) 0%, var(--magenta) 55%, var(--blue) 110%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility bg-brand-gradient {
+  background-image: linear-gradient(110deg, var(--primary) 0%, var(--magenta) 100%);
+}
+
+@utility glow-ring {
+  box-shadow:
+    0 0 0 1px rgb(255 255 255 / 0.08) inset,
+    0 10px 40px -8px var(--glow-strong);
+}
+
+@utility bg-grid {
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* Theme switch: short colour transition applied only while switching. */
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
+  transition:
+    background-color 0.45s ease,
+    border-color 0.45s ease,
+    color 0.45s ease,
+    fill 0.45s ease,
+    box-shadow 0.45s ease !important;
+}
+
+/* View-transition based circular reveal for the theme toggle. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* Subtle film grain to give gradients some texture. */
+.noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: var(--noise-opacity);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }
