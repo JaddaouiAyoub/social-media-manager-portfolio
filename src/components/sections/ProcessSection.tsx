@@ -5,7 +5,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export function ProcessSection() {
   return (
-    <section id="process" aria-labelledby="process-title" className="relative scroll-mt-24 py-20 sm:py-28">
+    <section id="process" aria-labelledby="process-title" className="relative py-20 sm:py-28">
       <div className="container-page">
         <SectionHeading
           id="process-title"

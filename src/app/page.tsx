@@ -6,10 +6,12 @@ import { ProcessSection } from "@/components/sections/ProcessSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { SkillsSection } from "@/components/sections/SkillsSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
+import { PersonJsonLd } from "@/components/seo/PersonJsonLd";
 
 export default function HomePage() {
   return (
     <>
+      <PersonJsonLd />
       <main id="main" className="overflow-x-clip">
         <HeroSection />
         <AboutSection />

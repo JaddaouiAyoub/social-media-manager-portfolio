@@ -111,7 +111,7 @@ export function HeroSection() {
                   return (
                     <li
                       key={item.title}
-                      className="glass group flex items-center gap-3 rounded-2xl p-3.5 transition-[transform,border-color] duration-300 hover:-translate-y-1 hover:border-primary/40"
+                      className="glass group flex items-center gap-3 rounded-2xl p-3.5 transition-[transform,border-color] duration-300 hover:-translate-y-1 hover:border-primary/40 lg:max-xl:flex-col lg:max-xl:items-start"
                     >
                       <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-primary-soft text-primary transition-transform duration-300 group-hover:scale-110">
                         <Icon className="size-5" aria-hidden="true" />

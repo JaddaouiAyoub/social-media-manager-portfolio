@@ -33,7 +33,7 @@ export function Header() {
             : "border-b border-transparent py-4 lg:py-6",
         )}
       >
-        <div className="container-page flex items-center justify-between gap-4">
+        <div className="container-page flex items-center justify-between gap-2 sm:gap-4">
           <Logo />
 
           <nav aria-label="Main navigation" className="hidden lg:block">
@@ -46,7 +46,7 @@ export function Header() {
                       href={`/#${item.id}`}
                       aria-current={isActive ? "true" : undefined}
                       className={cn(
-                        "relative flex min-h-10 items-center gap-2 rounded-full px-4 text-sm font-medium transition-colors duration-300",
+                        "relative flex min-h-10 items-center gap-2 rounded-full px-3 text-sm font-medium transition-colors duration-300 xl:px-4",
                         isActive ? "text-on-primary" : "text-muted hover:text-fg",
                       )}
                     >

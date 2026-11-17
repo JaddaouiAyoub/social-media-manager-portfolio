@@ -5,7 +5,7 @@ import { Eyebrow } from "@/components/ui/SectionHeading";
 
 export function SkillsSection() {
   return (
-    <section id="skills" aria-labelledby="skills-title" className="relative scroll-mt-24 py-16 sm:py-20">
+    <section id="skills" aria-labelledby="skills-title" className="relative py-16 sm:py-20">
       <div className="container-page">
         <Reveal className="noise relative overflow-hidden rounded-[2.2rem] border border-line bg-[linear-gradient(135deg,color-mix(in_oklab,var(--primary)_14%,var(--surface)),var(--surface)_60%)] p-6 card-shadow sm:p-10 lg:p-14">
           <div className="pointer-events-none absolute -top-24 -right-24 size-72 rounded-full bg-primary/25 blur-3xl" aria-hidden="true" />

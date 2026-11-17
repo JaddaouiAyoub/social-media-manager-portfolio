@@ -9,7 +9,7 @@ export function AboutSection() {
   const { about } = profile;
 
   return (
-    <section id="about" aria-labelledby="about-title" className="relative scroll-mt-24 py-20 sm:py-28">
+    <section id="about" aria-labelledby="about-title" className="relative py-20 sm:py-28">
       <div
         className="pointer-events-none absolute top-1/4 -left-40 -z-10 size-[28rem] rounded-full bg-primary/15 blur-[120px]"
         aria-hidden="true"

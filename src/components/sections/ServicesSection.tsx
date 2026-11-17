@@ -5,7 +5,7 @@ import { ServiceCard } from "@/components/ui/ServiceCard";
 
 export function ServicesSection() {
   return (
-    <section id="services" aria-labelledby="services-title" className="relative scroll-mt-24 py-20 sm:py-28">
+    <section id="services" aria-labelledby="services-title" className="relative py-20 sm:py-28">
       <div
         className="pointer-events-none absolute top-0 right-0 -z-10 size-[30rem] rounded-full bg-magenta/10 blur-[130px]"
         aria-hidden="true"

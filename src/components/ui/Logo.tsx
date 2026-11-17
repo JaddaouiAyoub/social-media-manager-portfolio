@@ -28,7 +28,7 @@ export function Logo({ className, compact = false }: { className?: string; compa
   return (
     <Link
       href="/#home"
-      className={cn("group inline-flex items-center gap-3 rounded-xl", className)}
+      className={cn("group inline-flex min-w-0 items-center gap-2.5 rounded-xl sm:gap-3", className)}
       aria-label={`${profile.name}, ${profile.role} — back to top`}
     >
       <span className="relative grid place-items-center transition-transform duration-500 group-hover:-rotate-6 group-hover:scale-105">
@@ -37,7 +37,7 @@ export function Logo({ className, compact = false }: { className?: string; compa
       </span>
       {!compact && (
         <span className="flex flex-col leading-tight">
-          <span className="font-display text-[1.05rem] font-semibold tracking-tight text-fg">{profile.firstName}</span>
+          <span className="font-display text-base font-semibold tracking-tight whitespace-nowrap text-fg sm:text-[1.05rem]">{profile.name}</span>
           <span className="text-xs whitespace-nowrap text-muted max-[379px]:hidden">{profile.role}</span>
         </span>
       )}

@@ -11,7 +11,7 @@ export function ContactSection() {
   const configured = isContactConfigured();
 
   return (
-    <section id="contact" aria-labelledby="contact-title" className="relative scroll-mt-24 py-20 sm:py-28">
+    <section id="contact" aria-labelledby="contact-title" className="relative py-20 sm:py-28">
       <div className="pointer-events-none absolute inset-x-0 top-1/3 -z-10 mx-auto h-[28rem] max-w-4xl rounded-full bg-primary/15 blur-[140px]" aria-hidden="true" />
       <div className="container-page grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
         <div className="flex flex-col items-start">

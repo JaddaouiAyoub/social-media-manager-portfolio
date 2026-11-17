@@ -9,7 +9,7 @@ export function TestimonialsSection() {
   const hasTestimonials = publishedTestimonials.length > 0;
 
   return (
-    <section id="testimonials" aria-labelledby="testimonials-title" className="relative scroll-mt-24 py-20 sm:py-28">
+    <section id="testimonials" aria-labelledby="testimonials-title" className="relative py-20 sm:py-28">
       <div className="container-page">
         <SectionHeading
           id="testimonials-title"
